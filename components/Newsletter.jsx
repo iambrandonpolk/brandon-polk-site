@@ -105,7 +105,7 @@ function KitForm() {
       </div>
 
       <div
-        className="formkit-alert formkit-alert-success mt-4 text-sm text-[var(--brand-strong)]"
+        className="formkit-alert formkit-alert-success mt-4 text-sm text-[var(--brand-strong)] hidden"
         data-element="success"
       >
         <div className="formkit-success-content">
