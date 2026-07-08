@@ -30,7 +30,7 @@ export default function Hero() {
             className="animate-fade-up mt-9 max-w-reading text-lg leading-relaxed text-[var(--text-muted)] sm:text-xl"
             style={{ animationDelay: "0.24s" }}
           >
-            I write about the questions I'm sitting with — business, faith,
+            I write about the questions I'm sitting with: business, faith,
             health, and the small photographs of everyday life. Not answers.
             Just an honest record of what I'm learning, shared as I go.
           </p>
