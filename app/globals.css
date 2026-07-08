@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------
+   Theme tokens — warm, quiet, monochrome.
+------------------------------------------------------------------- */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f1faf8; /* soft teal tint */
+  --text: #0f2320; /* deep teal-charcoal */
+  --text-muted: #5b6f6a;
+  --text-faint: #9bada8;
+  --brand: #1b998b; /* teal */
+  --brand-strong: #157f73;
+  --brand-soft: #eaf6f4; /* teal wash for hover surfaces */
+  --accent: #f55d3e; /* orange — small accents only */
+  --border: rgba(15, 35, 32, 0.1);
+  --border-soft: rgba(15, 35, 32, 0.06);
+}
+
+.dark {
+  --bg: #0a1413;
+  --bg-soft: #0f1f1d;
+  --text: #eef4f2;
+  --text-muted: #93a49f;
+  --text-faint: #61726d;
+  --brand: #2bb5a4; /* slightly lifted teal for dark surfaces */
+  --brand-strong: #35c4b2;
+  --brand-soft: rgba(43, 181, 164, 0.12);
+  --accent: #ff6a4d;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-soft: rgba(255, 255, 255, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-feature-settings: "kern", "liga", "calt";
+  transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Serif display gets slightly tighter tracking + optical niceties. */
+.font-serif {
+  font-feature-settings: "kern", "liga";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: rgba(27, 153, 139, 0.18); /* teal tint */
+}
+.dark ::selection {
+  background: rgba(43, 181, 164, 0.28);
+}
+
+/* ------------------------------------------------------------------
+   Scroll reveal — gentle, with optional stagger via inline delay.
+------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Editorial eyebrow: a short hairline + a quiet label. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--brand); /* teal hairline */
+  opacity: 0.9;
+}
+
+/* Understated link underline that animates in. */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover {
+  background-size: 100% 1px;
+}
