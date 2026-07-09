@@ -4,11 +4,12 @@ import { useState } from "react";
 import Section from "./Section";
 
 // ------------------------------------------------------------------
-// An open invitation to ask a question worth sitting with.
+// Not a Q&A box. An invitation to send something that shifted the way
+// you see things: an idea, a passage, a thing you noticed.
 //
 // Submissions go to /api/ask, which files them in Notion. No email is
-// collected: this is a question box, not a mailing list, and asking for
-// an address here would quietly change what the form is.
+// collected: asking for an address would quietly turn this into a
+// mailing list signup, which it isn't.
 // ------------------------------------------------------------------
 export default function Ask() {
   const [status, setStatus] = useState("idle");
@@ -27,7 +28,7 @@ export default function Ask() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: data.get("name"),
-          question: data.get("question"),
+          perspective: data.get("perspective"),
           website: data.get("website"), // honeypot, always empty for humans
         }),
       });
@@ -52,19 +53,21 @@ export default function Ask() {
     "w-full rounded-2xl border border-[var(--border)] bg-[var(--bg)] px-5 py-3.5 text-sm text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-faint)] focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/25 disabled:opacity-60";
 
   return (
-    <Section id="ask" eyebrow="Ask">
+    <Section id="perspective" eyebrow="Perspective">
       <h2 className="mt-6 max-w-reading font-serif text-4xl font-light leading-[1.12] tracking-tighter sm:text-5xl">
-        What are you turning over?
+        Show me something I'd miss.
       </h2>
 
       <div className="mt-10 max-w-reading space-y-7 text-lg leading-relaxed text-[var(--text-muted)]">
         <p>
-          If there's a question you keep circling back to, send it here. The
-          best ones tend to be the ones you haven't fully answered yourself.
+          This isn't a place to ask me things and wait for an answer. It's the
+          other way around. If you read something, learned something, or noticed
+          something that changed the way you see things, send it here.
         </p>
         <p>
-          I read all of them. Some will end up in the Journal or on the podcast,
-          and I'll say where it came from.
+          It doesn't have to be profound. The small, strange, specific ones tend
+          to be the best. I read every one, and some will end up in the Journal
+          or on the podcast, with credit to whoever sent them.
         </p>
       </div>
 
@@ -74,9 +77,8 @@ export default function Ask() {
             Got it. Thank you.
           </p>
           <p className="mt-5 leading-relaxed text-[var(--text-muted)]">
-            Your question is sitting in my notebook now. I read every one, though
-            I can't promise a reply to each. If yours ends up shaping something I
-            write, you'll see it.
+            This is in my notebook now, and I'll sit with it. If it shifts
+            something for me, there's a good chance you'll hear about it.
           </p>
         </div>
       ) : (
@@ -97,17 +99,17 @@ export default function Ask() {
               className={fieldClass}
             />
 
-            <label htmlFor="ask-question" className="sr-only">
-              Your question
+            <label htmlFor="ask-perspective" className="sr-only">
+              What shifted the way you see things
             </label>
             <textarea
-              id="ask-question"
-              name="question"
+              id="ask-perspective"
+              name="perspective"
               required
               rows={5}
               maxLength={1500}
               disabled={loading}
-              placeholder="What's the question you keep coming back to?"
+              placeholder="Something you read, learned, or noticed that made you think differently"
               className={`${fieldClass} resize-y`}
             />
 
@@ -128,7 +130,7 @@ export default function Ask() {
               disabled={loading}
               className="w-full rounded-full bg-[var(--brand)] px-7 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-calm hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] disabled:pointer-events-none disabled:opacity-70 sm:w-auto sm:self-start sm:px-12"
             >
-              {loading ? "Sending..." : "Send your question"}
+              {loading ? "Sending..." : "Send it my way"}
             </button>
           </form>
 
