@@ -6,6 +6,7 @@ import Podcast from "@/components/Podcast";
 import LatestContent from "@/components/LatestContent";
 import Photography from "@/components/Photography";
 import Books from "@/components/Books";
+import Ask from "@/components/Ask";
 import QuoteRotator from "@/components/QuoteRotator";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -36,6 +37,9 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <Books />
+        </Reveal>
+        <Reveal>
+          <Ask />
         </Reveal>
         <Reveal>
           <QuoteRotator />
