@@ -18,18 +18,18 @@ const newsreader = Newsreader({
 });
 
 // ------------------------------------------------------------------
-// SEO — update siteUrl to your real domain before launch.
+// SEO: update siteUrl to your real domain before launch.
 // ------------------------------------------------------------------
 const siteUrl = "https://iambrandonpolk.com";
-const title = "Brandon Polk — Learning in public. Building with curiosity.";
+const title = "Brandon Polk | Learning in public. Building with curiosity.";
 const description =
-  "I'm Brandon. I write about the questions I'm sitting with — business, faith, health, and the small photographs of everyday life — and share what I learn as I go.";
+  "I'm Brandon. I write about the questions I'm sitting with: business, faith, health, and the small photographs of everyday life. I share what I learn as I go.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: title,
-    template: "%s — Brandon Polk",
+    template: "%s | Brandon Polk",
   },
   description,
   keywords: [
