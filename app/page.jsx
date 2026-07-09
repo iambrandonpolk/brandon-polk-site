@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Newsletter from "@/components/Newsletter";
 import About from "@/components/About";
 import Ask from "@/components/Ask";
-import Podcast from "@/components/Podcast";
 import Diaries from "@/components/Diaries";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -22,9 +21,9 @@ import Reveal from "@/components/Reveal";
 // this site Brandon made. Asking a stranger for their email before showing
 // them a single sentence you wrote is asking for a favour you haven't earned.
 //
-// The bookshelf and the camera gear are lists of other people's things. They
-// have their own pages, reachable from the nav. They no longer sit between a
-// reader and the writing.
+// The bookshelf, the gear, and the podcast each have their own page now.
+// The homepage is the writing, the invitation, and who is doing the writing.
+// Nothing on it is a list of things to buy or a player you have to scroll past.
 export default function Home() {
   return (
     <>
@@ -42,9 +41,6 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <Ask />
-        </Reveal>
-        <Reveal>
-          <Podcast />
         </Reveal>
       </main>
       <Footer />
