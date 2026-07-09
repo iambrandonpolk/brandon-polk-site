@@ -1,8 +1,8 @@
 import Section from "./Section";
-import { contactEmail } from "@/lib/content";
 
 // A genuine, non-expert introduction. Written like a person, not a brand.
-// Ends with an open, personable invitation to get in touch.
+// No email invitation here on purpose: casual questions go to Instagram DMs,
+// which keeps the inbox from becoming a support queue.
 export default function About() {
   return (
     <Section id="about" eyebrow="About">
@@ -33,38 +33,6 @@ export default function About() {
           </a>
           .
         </p>
-      </div>
-
-      {/* Personable, low-pressure invitation to write in. */}
-      <div className="mt-16 max-w-reading rounded-3xl border border-[var(--border-soft)] bg-[var(--bg-soft)] px-7 py-9 sm:px-9 sm:py-10">
-        <p className="font-serif text-2xl font-light tracking-tight sm:text-3xl">
-          Come say hello.
-        </p>
-        <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
-          If you have a question, want to share what you're working through, or
-          just feel like introducing yourself, my inbox is genuinely open. I
-          read everything that comes in, even when life gets busy and I take a
-          while to write back.
-        </p>
-        <a
-          href={`mailto:${contactEmail}`}
-          className="group mt-6 inline-flex items-center gap-2 font-medium text-[var(--brand)] transition-colors duration-300 hover:text-[var(--brand-strong)]"
-        >
-          {contactEmail}
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="transition-transform duration-300 group-hover:translate-x-1"
-          >
-            <path d="M5 12h14M13 6l6 6-6 6" />
-          </svg>
-        </a>
       </div>
     </Section>
   );
