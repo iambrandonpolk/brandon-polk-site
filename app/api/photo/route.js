@@ -53,8 +53,17 @@ export async function GET(request) {
   }
 
   const type = upstream.headers.get("content-type") || "image/jpeg";
-  if (!type.startsWith("image/")) {
-    return new Response("Not an image", { status: 415 });
+
+  // Only formats a browser can actually paint. A camera RAW file (.ARW, .CR2,
+  // .NEF) has an image/* MIME type but renders as nothing, and weighs 25MB.
+  // Rejecting it loudly here beats a silently broken photograph on the site.
+  const WEB_FORMATS = ["image/jpeg", "image/png", "image/webp", "image/avif", "image/gif"];
+  if (!WEB_FORMATS.includes(type.split(";")[0].trim().toLowerCase())) {
+    console.error(
+      `Photo proxy: "${slug}" is ${type}, which browsers cannot display. ` +
+        `Upload a JPEG to the Photo column in Notion instead of a camera RAW file.`
+    );
+    return new Response("Unsupported image format", { status: 415 });
   }
 
   return new Response(upstream.body, {
