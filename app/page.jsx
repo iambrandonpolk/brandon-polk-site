@@ -5,7 +5,7 @@ import About from "@/components/About";
 import Ask from "@/components/Ask";
 import Books from "@/components/Books";
 import Podcast from "@/components/Podcast";
-import Photography from "@/components/Photography";
+import Diaries from "@/components/Diaries";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 
@@ -43,7 +43,7 @@ export default function Home() {
           <Podcast />
         </Reveal>
         <Reveal>
-          <Photography />
+          <Diaries />
         </Reveal>
       </main>
       <Footer />
