@@ -1,5 +1,5 @@
 import Container from "./Container";
-import { social } from "@/lib/content";
+import { social, contactEmail } from "@/lib/content";
 
 // A calm close. One last invitation, quiet links, and room to breathe.
 export default function Footer() {
@@ -23,6 +23,15 @@ export default function Footer() {
                 join the Journal
               </a>
               .
+            </p>
+            <p className="mt-5 text-sm leading-relaxed text-[var(--text-faint)]">
+              Questions, or just want to say hi?{" "}
+              <a
+                href={`mailto:${contactEmail}`}
+                className="link-underline text-[var(--brand)]"
+              >
+                {contactEmail}
+              </a>
             </p>
           </div>
 
