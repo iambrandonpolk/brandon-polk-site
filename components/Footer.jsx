@@ -1,7 +1,9 @@
 import Container from "./Container";
-import { social, contactEmail } from "@/lib/content";
+import { social } from "@/lib/content";
 
 // A calm close. One last invitation, quiet links, and room to breathe.
+// The "Elsewhere" list carries Instagram (where DMs land) and a discreet
+// Email link. No loud "contact me" call, on purpose.
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -23,15 +25,6 @@ export default function Footer() {
                 join the Journal
               </a>
               .
-            </p>
-            <p className="mt-5 text-sm leading-relaxed text-[var(--text-faint)]">
-              Questions, or just want to say hi?{" "}
-              <a
-                href={`mailto:${contactEmail}`}
-                className="link-underline text-[var(--brand)]"
-              >
-                {contactEmail}
-              </a>
             </p>
           </div>
 
