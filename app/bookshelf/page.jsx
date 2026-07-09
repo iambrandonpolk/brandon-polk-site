@@ -46,17 +46,6 @@ export default function BookshelfPage() {
               creativity, money, people, faith, and building a life worth
               documenting. Tap any cover to grab it on Amazon.
             </p>
-
-            {/* The gear page is the shelf's twin: another list of things I use. */}
-            <a
-              href="/gear"
-              className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand)] transition-colors duration-300 hover:text-[var(--brand-strong)]"
-            >
-              The camera gear I shoot with
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
-                <path d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </a>
           </div>
         </Container>
 
