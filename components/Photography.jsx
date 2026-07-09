@@ -2,7 +2,7 @@ import Section from "./Section";
 import { social } from "@/lib/content";
 
 // No manual uploads. Brandon already posts photos to VSCO, so this section is a
-// calm invitation to follow along there — nothing to maintain.
+// calm invitation to follow along there, with nothing to maintain.
 const vsco = social.find((s) => s.label === "VSCO")?.href || "#";
 
 const places = [
@@ -20,7 +20,7 @@ export default function Photography() {
       id="photography"
       eyebrow="Photography"
       title="Everyday moments."
-      intro="I keep the ordinary — the light, the small scenes, the things easy to walk past. I share it all as I shoot it, over on VSCO."
+      intro="I keep the ordinary: the light, the small scenes, the things easy to walk past. I share it all as I shoot it, over on VSCO."
     >
       <div className="mt-16 border-t border-[var(--border)]">
         {places.map((place) => (
