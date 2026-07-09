@@ -30,11 +30,10 @@ export default function Newsletter() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
-            Most weeks I write down what I'm working through: a question I
-            can't stop turning over, something I'm reading, a connection I didn't
-            see coming, and what I'm quietly building. It's honest and a little
-            unfinished. If that sounds like your kind of thing, I'd love to have
-            you along for it.
+            This is where new work lands first: a diary entry when I finish
+            one, a podcast episode when it drops, and whatever I'm working
+            through in between. No fixed schedule, and nothing sent just to fill
+            one. If that sounds like your kind of thing, come along.
           </p>
 
           <JournalForm />
