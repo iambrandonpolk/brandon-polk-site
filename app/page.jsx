@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import Newsletter from "@/components/Newsletter";
 import About from "@/components/About";
 import Ask from "@/components/Ask";
-import Books from "@/components/Books";
 import Podcast from "@/components/Podcast";
 import Diaries from "@/components/Diaries";
 import Footer from "@/components/Footer";
@@ -23,12 +22,9 @@ import Reveal from "@/components/Reveal";
 // this site Brandon made. Asking a stranger for their email before showing
 // them a single sentence you wrote is asking for a favour you haven't earned.
 //
-// The Diaries come first, right under the hero. They are the only thing on
-// this site Brandon made. Asking a stranger for their email before showing
-// them a single sentence you wrote is asking for a favour you haven't earned.
-//
-// Books sits above Podcast because the bookshelf is the only page with
-// evidence that people want something here: 20 clicks, 2 orders, ~10%.
+// The bookshelf and the camera gear are lists of other people's things. They
+// have their own pages, reachable from the nav. They no longer sit between a
+// reader and the writing.
 export default function Home() {
   return (
     <>
@@ -46,9 +42,6 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <Ask />
-        </Reveal>
-        <Reveal>
-          <Books />
         </Reveal>
         <Reveal>
           <Podcast />
