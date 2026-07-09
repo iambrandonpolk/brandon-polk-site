@@ -1,8 +1,9 @@
 import Container from "./Container";
 
-// Vertical rhythm wrapper with generous, restrained spacing.
-// `eyebrow` renders as an editorial hairline + quiet label.
-// `title` is set in the serif display face for emotional hierarchy.
+// Vertical rhythm wrapper. Spacing is deliberately tighter than it was:
+// the old py-44 meant 176px above and below every section, which turned a
+// six-section page into ten screens of scrolling. Whitespace should frame
+// the work, not replace it.
 export default function Section({
   id,
   eyebrow,
@@ -13,18 +14,18 @@ export default function Section({
   containerClassName = "",
 }) {
   return (
-    <section id={id} className={`scroll-mt-28 py-28 sm:py-36 lg:py-44 ${className}`}>
+    <section id={id} className={`scroll-mt-24 py-16 sm:py-20 lg:py-24 ${className}`}>
       <Container className={containerClassName}>
         {(eyebrow || title || intro) && (
           <div className="max-w-reading">
             {eyebrow && <span className="eyebrow">{eyebrow}</span>}
             {title && (
-              <h2 className="mt-6 font-serif text-4xl font-light leading-[1.08] tracking-tighter sm:text-5xl lg:text-6xl">
+              <h2 className="mt-5 font-serif text-4xl font-light leading-[1.08] tracking-tighter sm:text-5xl">
                 {title}
               </h2>
             )}
             {intro && (
-              <p className="mt-6 text-lg leading-relaxed text-[var(--text-muted)] sm:text-xl">
+              <p className="mt-5 text-lg leading-relaxed text-[var(--text-muted)]">
                 {intro}
               </p>
             )}
