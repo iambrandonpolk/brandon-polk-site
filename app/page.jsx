@@ -19,6 +19,10 @@ import Reveal from "@/components/Reveal";
 // 2. No "Recently / A living archive" index. It only pointed at the podcast,
 //    photography, and journal sections that follow it anyway.
 //
+// The Diaries come first, right under the hero. They are the only thing on
+// this site Brandon made. Asking a stranger for their email before showing
+// them a single sentence you wrote is asking for a favour you haven't earned.
+//
 // Books sits above Podcast because the bookshelf is the only page with
 // evidence that people want something here: 20 clicks, 2 orders, ~10%.
 export default function Home() {
@@ -27,6 +31,9 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <Reveal>
+          <Diaries />
+        </Reveal>
         <Reveal>
           <Newsletter />
         </Reveal>
@@ -41,9 +48,6 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <Podcast />
-        </Reveal>
-        <Reveal>
-          <Diaries />
         </Reveal>
       </main>
       <Footer />
