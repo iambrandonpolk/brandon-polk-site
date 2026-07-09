@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
@@ -71,14 +72,14 @@ export default async function DiaryEntry({ params }) {
             </p>
 
             <figure className="mt-10">
-              <div className="overflow-hidden rounded-lg bg-[var(--bg-soft)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="relative aspect-[2/3] overflow-hidden rounded-lg bg-[var(--bg-soft)]">
+                <Image
                   src={entry.img}
                   alt={entry.alt}
-                  width={1069}
-                  height={1600}
-                  className="w-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 672px"
+                  className="object-cover"
                 />
               </div>
             </figure>
