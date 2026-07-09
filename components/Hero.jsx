@@ -43,7 +43,7 @@ export default function Hero() {
               Join the Journal
             </Button>
             <a
-              href="#podcast"
+              href="/podcast"
               className="link-underline text-sm text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"
             >
               or listen to the podcast
