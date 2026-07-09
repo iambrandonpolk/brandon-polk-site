@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Newsletter from "@/components/Newsletter";
 import About from "@/components/About";
-import Ask from "@/components/Ask";
 import Diaries from "@/components/Diaries";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -38,9 +37,6 @@ export default function Home() {
         </Reveal>
         <Reveal>
           <About />
-        </Reveal>
-        <Reveal>
-          <Ask />
         </Reveal>
       </main>
       <Footer />
