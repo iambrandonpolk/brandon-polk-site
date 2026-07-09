@@ -2,7 +2,7 @@ import Section from "./Section";
 import Reveal from "./Reveal";
 import { writing } from "@/lib/content";
 
-// An editorial index instead of boxy cards — a quiet, living archive.
+// An editorial index instead of boxy cards: a quiet, living archive.
 // Each row is a full-width link with a hairline divider and a hover shift.
 // Edit entries in /lib/content.js.
 export default function LatestContent() {
@@ -11,7 +11,7 @@ export default function LatestContent() {
       id="writing"
       eyebrow="Recently"
       title="A living archive."
-      intro="Journal notes, photographs, and — soon — conversations. New things land here first."
+      intro="Journal notes, photographs, and soon, conversations. New things land here first."
     >
       <div className="mt-16 border-t border-[var(--border)]">
         {writing.map((item, i) => (
