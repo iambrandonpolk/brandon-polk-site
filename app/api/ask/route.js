@@ -1,10 +1,10 @@
 // ------------------------------------------------------------------
-// Receives a reader's question and files it in the "Journal Questions"
+// Receives a reader's perspective and files it in the "Perspectives"
 // Notion database.
 //
 // Needs two environment variables in Vercel:
 //   NOTION_TOKEN        the internal integration secret (starts with ntn_)
-//   NOTION_QUESTIONS_DB the Journal Questions database id
+//   NOTION_QUESTIONS_DB the Perspectives database id
 //
 // The token never reaches the browser: this runs on the server only.
 // ------------------------------------------------------------------
@@ -13,7 +13,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const NOTION_VERSION = "2022-06-28";
-const MAX_QUESTION = 1500;
+const MAX_PERSPECTIVE = 1500;
 const MAX_NAME = 80;
 
 // A public form on the open internet gets bots. These three cheap checks
@@ -60,7 +60,7 @@ export async function POST(request) {
   if (!token || !database) {
     console.error("Ask form: NOTION_TOKEN or NOTION_QUESTIONS_DB is missing.");
     return Response.json(
-      { error: "The question box isn't set up yet. Please try again later." },
+      { error: "This isn't set up quite yet. Please try again later." },
       { status: 500 }
     );
   }
@@ -79,16 +79,16 @@ export async function POST(request) {
   }
 
   const name = clean(body.name, MAX_NAME);
-  const question = clean(body.question, MAX_QUESTION);
+  const perspective = clean(body.perspective, MAX_PERSPECTIVE);
 
-  if (!name || !question) {
+  if (!name || !perspective) {
     return Response.json(
-      { error: "Please add your name and a question." },
+      { error: "Please add your name and something to share." },
       { status: 400 }
     );
   }
 
-  if (question.length < 10) {
+  if (perspective.length < 10) {
     return Response.json(
       { error: "Could you say a little more? Even a sentence or two helps." },
       { status: 400 }
@@ -100,7 +100,7 @@ export async function POST(request) {
 
   if (rateLimited(ip)) {
     return Response.json(
-      { error: "That's a few questions already. Try again in a little while." },
+      { error: "That's a few already. Try again in a little while." },
       { status: 429 }
     );
   }
@@ -116,8 +116,8 @@ export async function POST(request) {
       body: JSON.stringify({
         parent: { database_id: database },
         properties: {
-          Question: { title: [{ text: { content: question } }] },
-          Name: { rich_text: [{ text: { content: name } }] },
+          Perspective: { title: [{ text: { content: perspective } }] },
+          From: { rich_text: [{ text: { content: name } }] },
           Status: { select: { name: "New" } },
           Submitted: { date: { start: new Date().toISOString() } },
         },
@@ -126,7 +126,7 @@ export async function POST(request) {
 
     if (!res.ok) {
       const detail = await res.text();
-      console.error("Notion rejected the question:", res.status, detail);
+      console.error("Notion rejected the submission:", res.status, detail);
       return Response.json(
         { error: "Something went wrong saving that. Please try again." },
         { status: 502 }
