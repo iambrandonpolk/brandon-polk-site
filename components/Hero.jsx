@@ -6,7 +6,7 @@ import Button from "./Button";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <Container className="pt-24 pb-28 sm:pt-36 sm:pb-36 lg:pt-44 lg:pb-44">
+      <Container className="pt-16 pb-20 sm:pt-24 sm:pb-24 lg:pt-28 lg:pb-28">
         <div className="max-w-4xl">
           <p
             className="eyebrow animate-fade-in"
@@ -16,7 +16,7 @@ export default function Hero() {
           </p>
 
           <h1
-            className="animate-fade-up mt-8 font-serif text-5xl font-light leading-[1.02] tracking-tighter sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+            className="animate-fade-up mt-6 font-serif text-5xl font-light leading-[1.02] tracking-tighter sm:text-6xl md:text-7xl"
             style={{ animationDelay: "0.12s" }}
           >
             Learning in public,
@@ -27,7 +27,7 @@ export default function Hero() {
           </h1>
 
           <p
-            className="animate-fade-up mt-9 max-w-reading text-lg leading-relaxed text-[var(--text-muted)] sm:text-xl"
+            className="animate-fade-up mt-7 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]"
             style={{ animationDelay: "0.24s" }}
           >
             I write about the questions I'm sitting with: business, faith,
@@ -36,7 +36,7 @@ export default function Hero() {
           </p>
 
           <div
-            className="animate-fade-up mt-11 flex flex-wrap items-center gap-x-8 gap-y-4"
+            className="animate-fade-up mt-9 flex flex-wrap items-center gap-x-8 gap-y-4"
             style={{ animationDelay: "0.36s" }}
           >
             <Button href="#newsletter" variant="primary">
