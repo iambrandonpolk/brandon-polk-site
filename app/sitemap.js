@@ -27,5 +27,6 @@ export default async function sitemap() {
     { url: `${SITE}/bookshelf`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE}/gear`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE}/podcast`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
+    { url: `${SITE}/perspective`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
   ];
 }
