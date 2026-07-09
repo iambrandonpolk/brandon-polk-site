@@ -20,16 +20,16 @@ const KIT_ACTION = "https://app.kit.com/forms/9661601/subscriptions";
 
 export default function Newsletter() {
   return (
-    <section id="newsletter" className="scroll-mt-28 py-28 sm:py-36 lg:py-44">
+    <section id="newsletter" className="scroll-mt-24 py-16 sm:py-20 lg:py-24">
       <Container>
-        <div className="mx-auto max-w-3xl rounded-[2rem] border border-[var(--border-soft)] bg-[var(--bg-soft)] px-6 py-16 text-center sm:px-14 sm:py-20">
+        <div className="mx-auto max-w-3xl rounded-[2rem] border border-[var(--border-soft)] bg-[var(--bg-soft)] px-6 py-12 text-center sm:px-14 sm:py-14">
           <span className="eyebrow justify-center">The Journal</span>
 
-          <h2 className="mt-7 font-serif text-4xl font-light leading-[1.06] tracking-tighter sm:text-5xl lg:text-6xl">
+          <h2 className="mt-6 font-serif text-4xl font-light leading-[1.06] tracking-tighter sm:text-5xl">
             Come think alongside me.
           </h2>
 
-          <p className="mx-auto mt-7 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
+          <p className="mx-auto mt-6 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
             Most weeks I write down what I'm working through: a question I
             can't stop turning over, something I'm reading, a connection I didn't
             see coming, and what I'm quietly building. It's honest and a little
