@@ -1,7 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Section from "./Section";
+
+// A blank box is intimidating. These rotate on each visit to show the kind
+// of thing worth sending. They are deliberately open-ended and make no
+// factual claims of their own: they're prompts, not statements.
+const PROMPTS = [
+  "Someone sent me a study that changed how I think about habits...",
+  "I read a line this week that I can't stop turning over...",
+  "I noticed something on a walk that I haven't stopped thinking about...",
+  "My grandmother said something that reframed my whole week...",
+  "I realized I've been wrong about something for years...",
+  "A conversation with a stranger shifted how I see my work...",
+];
 
 // ------------------------------------------------------------------
 // Not a Q&A box. An invitation to send something that shifted the way
@@ -14,6 +26,13 @@ import Section from "./Section";
 export default function Ask() {
   const [status, setStatus] = useState("idle");
   const [message, setMessage] = useState("");
+
+  // Server renders the first prompt, then the client swaps in a random one
+  // after mount. Picking randomly during render would mismatch hydration.
+  const [prompt, setPrompt] = useState(PROMPTS[0]);
+  useEffect(() => {
+    setPrompt(PROMPTS[Math.floor(Math.random() * PROMPTS.length)]);
+  }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -110,7 +129,7 @@ export default function Ask() {
               rows={5}
               maxLength={1500}
               disabled={loading}
-              placeholder="Something you read, learned, or noticed that made you think differently"
+              placeholder={prompt}
               className={`${fieldClass} resize-y`}
             />
 
