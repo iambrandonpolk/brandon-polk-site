@@ -26,13 +26,12 @@ export default function Newsletter() {
           <span className="eyebrow justify-center">The Journal</span>
 
           <h2 className="mt-6 font-serif text-4xl font-light leading-[1.06] tracking-tighter sm:text-5xl">
-            Come think alongside me.
+            Think out loud with me.
           </h2>
 
           <p className="mx-auto mt-6 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
-            This is where I tell you what I'm working on: a new diary entry,
-            a podcast episode, and whatever I'm turning over in between. If any
-            of that sounds like your kind of thing, come along.
+            I send the entries, the episodes, and the questions I haven't
+            answered yet. Come sit with them.
           </p>
 
           <JournalForm />
