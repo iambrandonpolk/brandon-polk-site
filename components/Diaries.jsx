@@ -1,12 +1,16 @@
 import Section from "./Section";
-import { diaries } from "@/lib/content";
+import { getDiaries } from "@/lib/diaries";
 
 // Replaces the old photography grid. The photographs were decoration; these
 // are writing. Each entry is a picture, a question, and what Brandon thought.
 //
-// Only the two newest show here. The rest live at /diaries.
-export default function Diaries() {
+// Entries come from the Diaries database in Notion. Only the two newest show
+// here. The rest live at /diaries.
+export default async function Diaries() {
+  const diaries = await getDiaries();
   const latest = diaries.slice(0, 2);
+
+  if (!latest.length) return null;
 
   return (
     <Section
