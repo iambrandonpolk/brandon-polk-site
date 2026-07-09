@@ -2,18 +2,18 @@ import Section from "./Section";
 import { podcast } from "@/lib/content";
 
 // The live Spotify show. A calm intro + the official embed + a follow link.
-// To swap shows later, change `podcast.embedUrl` / `showUrl` in lib/content.js.
+// To swap shows later, change podcast.embedUrl / showUrl in lib/content.js.
 export default function Podcast() {
   return (
     <Section
       id="podcast"
       eyebrow="Podcast"
       title="Conversations, out loud."
-      intro="Slow, curious talks with people I'm learning from — on business, faith, health, and figuring life out in real time. New episodes land on Spotify."
+      intro="Slow, curious talks with people I'm learning from, on business, faith, health, and figuring life out in real time. New episodes land on Spotify."
     >
       <div className="mt-14 overflow-hidden rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-soft)]">
         <iframe
-          title="Brandon Polk — Podcast on Spotify"
+          title="Brandon Polk Podcast on Spotify"
           src={podcast.embedUrl}
           width="100%"
           height="352"
