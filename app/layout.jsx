@@ -134,7 +134,15 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        {/*
+          Vercel Web Analytics. This is the same script the @vercel/analytics
+          package injects, loaded directly so we don't add a dependency and
+          risk package-lock drift. Vercel serves it from the deployment.
+        */}
+        <script defer src="/_vercel/insights/script.js" />
+      </body>
     </html>
   );
 }
