@@ -74,7 +74,8 @@ export default function About() {
             <p>
               Football taught me how to work. It also handed me a scoreboard, and
               when it ended I had to work out what a life outside of sport
-              actually looks like.
+              actually looks like. Finding myself out there was harder than I
+              expected it to be.
             </p>
             <p>
               I never saw myself as creative. That was something other people
