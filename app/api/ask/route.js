@@ -14,7 +14,7 @@ export const dynamic = "force-dynamic";
 
 const NOTION_VERSION = "2022-06-28";
 const MAX_PERSPECTIVE = 1500;
-const MAX_NAME = 80;
+const MAX_NAME = 40;
 
 // A public form on the open internet gets bots. These three cheap checks
 // stop the overwhelming majority without ever bothering a real reader.
@@ -83,7 +83,7 @@ export async function POST(request) {
 
   if (!name || !perspective) {
     return Response.json(
-      { error: "Please add your name and something to share." },
+      { error: "Please add your first name and something to share." },
       { status: 400 }
     );
   }
