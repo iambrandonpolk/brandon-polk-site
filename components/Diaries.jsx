@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Section from "./Section";
 import { getDiaries } from "@/lib/diaries";
 
@@ -23,16 +24,15 @@ export default async function Diaries() {
         {latest.map((entry) => (
           <article key={entry.slug}>
             <a href={`/diaries/${entry.slug}`} className="group block">
-              <div className="overflow-hidden rounded-lg bg-[var(--bg-soft)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-[var(--bg-soft)]">
+                {/* next/image resizes and re-encodes to WebP, so a large
+                    upload from Notion never reaches the reader at full size. */}
+                <Image
                   src={entry.img}
                   alt={entry.alt}
-                  width={1069}
-                  height={1600}
-                  loading="lazy"
-                  decoding="async"
-                  className="aspect-[4/5] w-full object-cover transition-transform duration-700 ease-calm group-hover:scale-[1.02]"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 45vw"
+                  className="object-cover transition-transform duration-700 ease-calm group-hover:scale-[1.02]"
                 />
               </div>
 
