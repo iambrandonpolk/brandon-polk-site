@@ -2,16 +2,16 @@ import Script from "next/script";
 import Container from "./Container";
 
 // ------------------------------------------------------------------
-// The heart of the site — a personal invitation, wired to Kit.
+// The heart of the site: a personal invitation, wired to Kit.
 //
-// ✅ CONNECTED TO KIT: this form posts to Brandon's "The Journal" form
+// CONNECTED TO KIT: this form posts to Brandon's "The Journal" form
 //    (Kit form ID 9661601, uid ae9c6a23fa). Subscribers land on that list.
 //    Kit's ck.js script below enhances it with inline success + spinner,
 //    so the visitor never leaves the page.
 //
-// To point this at a different Kit form later, change the form `action`
-// URL, `data-sv-form`, and `data-uid` to the new form's values (found in
-// Kit → your form → Embed → HTML).
+// To point this at a different Kit form later, change the form action
+// URL, data-sv-form, and data-uid to the new form's values (found in
+// Kit, your form, Embed, HTML).
 // ------------------------------------------------------------------
 const KIT_ACTION = "https://app.kit.com/forms/9661601/subscriptions";
 const KIT_FORM_ID = "9661601";
@@ -20,7 +20,7 @@ const KIT_UID = "ae9c6a23fa";
 export default function Newsletter() {
   return (
     <section id="newsletter" className="scroll-mt-28 py-28 sm:py-36 lg:py-44">
-      {/* Kit's enhancement script — enables inline success without a redirect */}
+      {/* Kit's enhancement script enables inline success without a redirect */}
       <Script
         src="https://f.convertkit.com/ckjs/ck.5.js"
         strategy="afterInteractive"
@@ -35,7 +35,7 @@ export default function Newsletter() {
           </h2>
 
           <p className="mx-auto mt-7 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
-            Most weeks I send a short letter — a question I can't stop turning
+            Most weeks I send a short letter: a question I can't stop turning
             over, something I'm reading, a lesson I didn't see coming, and what
             I'm quietly building. It's honest and a little unfinished. If that's
             your kind of thing, I'd love for you to read along.
@@ -68,7 +68,8 @@ function KitForm() {
       data-version="5"
       className="seva-form formkit-form"
     >
-      {/* Kit renders validation + success messages into these elements */}
+      {/* Kit renders validation + success messages into these elements.
+          The success div is hidden until ck.js reveals it after a signup. */}
       <ul
         className="formkit-alert formkit-alert-error mb-3 list-none text-sm text-[var(--accent)]"
         data-element="errors"
@@ -109,7 +110,7 @@ function KitForm() {
         data-element="success"
       >
         <div className="formkit-success-content">
-          You're in — check your inbox to confirm. Talk soon.
+          You're in. Check your inbox to confirm. Talk soon.
         </div>
       </div>
     </form>
