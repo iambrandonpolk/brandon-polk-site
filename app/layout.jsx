@@ -106,9 +106,10 @@ export default function RootLayout({ children }) {
         {/*
           Runs before paint. Two jobs:
           1. Prevent a flash of the wrong theme.
-          2. Turn off the browser's scroll restoration so a reload starts at
-             the top instead of dumping you back down the page. Anchor links
-             like /#books still work.
+          2. Stop the browser restoring the old scroll position on reload, so
+             a refresh starts at the top. Do NOT also scrollTo(0,0) on 'load':
+             that event fires late (after the podcast iframe and images) and
+             would yank the reader back up mid-click, breaking anchor links.
         */}
         <script
           dangerouslySetInnerHTML={{
@@ -124,11 +125,6 @@ export default function RootLayout({ children }) {
                 try {
                   if ('scrollRestoration' in history) {
                     history.scrollRestoration = 'manual';
-                  }
-                  if (!location.hash) {
-                    window.addEventListener('load', function () {
-                      window.scrollTo(0, 0);
-                    });
                   }
                 } catch (e) {}
               })();
