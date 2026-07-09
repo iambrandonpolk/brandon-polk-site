@@ -114,8 +114,8 @@ export default async function DiaryEntry({ params }) {
                 Don't check back. I'll tell you.
               </p>
               <p className="mx-auto mt-3 max-w-reading text-[var(--text-muted)]">
-                The Journal is how I let people know when a new entry goes up or
-                an episode drops. No schedule, and nothing sent just to fill one.
+                Leave your email and I'll send you the next entry, new podcast
+                episodes, and whatever I'm working through in between.
               </p>
               <a
                 href="/#newsletter"
