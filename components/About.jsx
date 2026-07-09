@@ -67,28 +67,27 @@ export default function About() {
 
           <div className="mt-10 max-w-reading space-y-7 text-lg leading-relaxed text-[var(--text-muted)]">
             <p>
-              I'm Brandon. I'm twenty-nine, and for most of my life I was a wide
-              receiver: four years at Penn State, a last season at James Madison,
-              and a contract with the Rams after the 2020 draft.
+              I'm Brandon. For most of my life I was a wide receiver: four years
+              at Penn State, a last season at James Madison, and a contract with
+              the Rams after the 2020 draft.
             </p>
             <p>
               Football taught me how to work. It also handed me a scoreboard, and
-              when it ended I had to learn how to measure a day without one. That
-              turned out to be the harder skill.
+              when it ended I had to work out what a life outside of sport
+              actually looks like.
             </p>
             <p>
-              So now I'm somewhere in the middle of figuring things out: learning
-              about business, investing, faith, health, and photography, and
-              trying to become someone I'd actually respect. I don't have it
-              worked out, and I'm not pretending to.
+              I never saw myself as creative. That was something other people
+              were. Then I was given room to explore it, and everything here is
+              what came out of that: the photographs, the writing, the questions
+              I keep turning over.
             </p>
             <p>
-              I used to think creativity was handed to certain people and not to
-              others. I don't believe that anymore. I think it's in everyone, and
-              most of us are just never quiet enough to notice it. What I care
-              about now is asking better questions, staying curious, and writing
-              down what I learn while it's still fresh: the good days, the false
-              starts, and the quiet things in between.
+              So I'm somewhere in the middle of figuring things out: business,
+              investing, faith, health, and photography. I don't have it worked
+              out, and I'm not pretending to. What I care about is asking better
+              questions, staying curious, and writing down what I learn while
+              it's still fresh.
             </p>
             <p>
               The camera is part of that. I photograph ordinary things, then sit
