@@ -1,7 +1,9 @@
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import { diaries } from "@/lib/content";
+import { getDiaries, DIARY_REVALIDATE } from "@/lib/diaries";
+
+export const revalidate = DIARY_REVALIDATE;
 
 export const metadata = {
   title: "Self Growth Diaries",
@@ -10,7 +12,9 @@ export const metadata = {
   alternates: { canonical: "/diaries" },
 };
 
-export default function DiariesIndex() {
+export default async function DiariesIndex() {
+  const diaries = await getDiaries();
+
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-[var(--border-soft)] bg-[var(--bg)]/70 backdrop-blur-xl">
