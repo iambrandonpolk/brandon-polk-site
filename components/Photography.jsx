@@ -2,7 +2,7 @@ import Section from "./Section";
 import { social } from "@/lib/content";
 
 // No manual uploads. Brandon already posts photos to VSCO, so this section is a
-// calm invitation to follow along there, with nothing to maintain.
+// calm invitation to follow along there, plus the gear he shoots with.
 const vsco = social.find((s) => s.label === "VSCO")?.href || "#";
 
 const places = [
@@ -11,6 +11,14 @@ const places = [
     handle: "iambrandonpolk",
     note: "A quiet, considered set of everyday frames.",
     href: vsco,
+    external: true,
+  },
+  {
+    label: "Camera gear",
+    handle: "the kit",
+    note: "The camera, lenses, and small things I actually carry.",
+    href: "/gear",
+    external: false,
   },
 ];
 
@@ -27,8 +35,8 @@ export default function Photography() {
           <a
             key={place.label}
             href={place.href}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={place.external ? "_blank" : undefined}
+            rel={place.external ? "noopener noreferrer" : undefined}
             className="group flex items-baseline justify-between gap-6 border-b border-[var(--border)] py-8"
           >
             <div>
@@ -51,7 +59,11 @@ export default function Photography() {
               strokeLinejoin="round"
               className="shrink-0 translate-y-1 text-[var(--text-faint)] transition-all duration-300 group-hover:translate-x-1 group-hover:text-[var(--brand)]"
             >
-              <path d="M7 17L17 7M9 7h8v8" />
+              {place.external ? (
+                <path d="M7 17L17 7M9 7h8v8" />
+              ) : (
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              )}
             </svg>
           </a>
         ))}
