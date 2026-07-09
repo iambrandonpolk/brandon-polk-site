@@ -111,11 +111,11 @@ export default async function DiaryEntry({ params }) {
 
             <div className="mt-14 rounded-2xl border border-[var(--border-soft)] bg-[var(--bg-soft)] px-6 py-8 text-center sm:px-10">
               <p className="font-serif text-xl font-light tracking-tight">
-                These go out in the Journal first.
+                Don't check back. I'll tell you.
               </p>
               <p className="mx-auto mt-3 max-w-reading text-[var(--text-muted)]">
-                Most weeks I write down what I'm working through. If that sounds
-                like your kind of thing, come along.
+                The Journal is how I let people know when a new entry goes up or
+                an episode drops. No schedule, and nothing sent just to fill one.
               </p>
               <a
                 href="/#newsletter"
