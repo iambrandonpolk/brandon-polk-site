@@ -6,7 +6,7 @@ import { bookshelf } from "@/lib/content";
 export const metadata = {
   title: "Bookshelf",
   description:
-    "Books I'm reading and recommending — on creativity, mindset, money, business, communication, wellness, and faith. Grouped by theme.",
+    "Books I'm reading and recommending, on creativity, mindset, money, business, communication, wellness, and faith. Grouped by theme.",
   alternates: { canonical: "/bookshelf" },
 };
 
@@ -16,7 +16,7 @@ export default function BookshelfPage() {
 
   return (
     <>
-      {/* Minimal header — keeps subpage navigation simple and unbroken */}
+      {/* Minimal header keeps subpage navigation simple and unbroken */}
       <header className="sticky top-0 z-50 border-b border-[var(--border-soft)] bg-[var(--bg)]/70 backdrop-blur-xl">
         <Container className="flex h-[4.5rem] items-center justify-between">
           <a href="/" className="font-serif text-xl tracking-tight text-[var(--brand)]">
@@ -87,11 +87,11 @@ export default function BookshelfPage() {
           </section>
         ))}
 
-        {/* Amazon Associates disclosure — required, and honest */}
+        {/* Amazon Associates disclosure: required, and honest */}
         <Container className="py-16">
           <p className="max-w-reading text-sm leading-relaxed text-[var(--text-faint)]">
             As an Amazon Associate I earn from qualifying purchases. Links above
-            are affiliate links — if you buy through them it costs you nothing
+            are affiliate links. If you buy through them it costs you nothing
             extra and helps support the Journal. I only list books I've actually
             read and would recommend.
           </p>
