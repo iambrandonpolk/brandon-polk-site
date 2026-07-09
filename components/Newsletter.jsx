@@ -11,7 +11,8 @@ import Container from "./Container";
 // relying on Kit's ck.js, so the thank-you message always appears and
 // we control the wording.
 //
-// We send first_name too, so the welcome email can greet people by name.
+// We send first_name so the welcome email can greet people by name, and
+// last_name as a Kit custom field so two readers named John stay distinct.
 // Kit responds 200 with JSON: { status: "success" | "failed", errors }
 // To point this at a different Kit form, change KIT_ACTION below.
 // ------------------------------------------------------------------
@@ -51,6 +52,7 @@ function JournalForm() {
     const data = new FormData(event.currentTarget);
     const email = data.get("email_address");
     const firstName = data.get("first_name");
+    const lastName = data.get("last_name");
 
     setStatus("loading");
     setMessage("");
@@ -65,6 +67,8 @@ function JournalForm() {
         body: JSON.stringify({
           email_address: email,
           first_name: firstName,
+          // "Last Name" is a Kit custom field, so it travels under fields.
+          fields: { last_name: lastName },
         }),
       });
 
@@ -126,26 +130,42 @@ function JournalForm() {
             name="first_name"
             type="text"
             required
+            maxLength={80}
             autoComplete="given-name"
             disabled={loading}
             placeholder="First name"
             className={fieldClass}
           />
 
-          <label htmlFor="ck-email" className="sr-only">
-            Email address
+          <label htmlFor="ck-last-name" className="sr-only">
+            Last name
           </label>
           <input
-            id="ck-email"
-            name="email_address"
-            type="email"
+            id="ck-last-name"
+            name="last_name"
+            type="text"
             required
-            autoComplete="email"
+            maxLength={80}
+            autoComplete="family-name"
             disabled={loading}
-            placeholder="your@email.com"
+            placeholder="Last name"
             className={fieldClass}
           />
         </div>
+
+        <label htmlFor="ck-email" className="sr-only">
+          Email address
+        </label>
+        <input
+          id="ck-email"
+          name="email_address"
+          type="email"
+          required
+          autoComplete="email"
+          disabled={loading}
+          placeholder="your@email.com"
+          className={fieldClass}
+        />
 
         <button
           type="submit"
