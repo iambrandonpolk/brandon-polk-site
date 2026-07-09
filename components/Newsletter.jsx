@@ -30,10 +30,11 @@ export default function Newsletter() {
           </h2>
 
           <p className="mx-auto mt-7 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
-            Most weeks I send a short letter: a question I can't stop turning
-            over, something I'm reading, a lesson I didn't see coming, and what
-            I'm quietly building. It's honest and a little unfinished. If that's
-            your kind of thing, I'd love for you to read along.
+            Most weeks I write down what I'm working through: a question I
+            can't stop turning over, something I'm reading, a connection I didn't
+            see coming, and what I'm quietly building. It's honest and a little
+            unfinished. If that sounds like your kind of thing, I'd love to have
+            you along for it.
           </p>
 
           <JournalForm />
