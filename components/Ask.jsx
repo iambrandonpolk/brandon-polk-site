@@ -67,7 +67,8 @@ export default function Ask() {
         <p>
           It doesn't have to be profound. The small, strange, specific ones tend
           to be the best. I read every one, and some will end up in the Journal
-          or on the podcast, with credit to whoever sent them.
+          or on the podcast. Leave your first name so I can say who it came
+          from.
         </p>
       </div>
 
@@ -85,17 +86,17 @@ export default function Ask() {
         <div className="mt-12 max-w-xl">
           <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <label htmlFor="ask-name" className="sr-only">
-              Your name
+              Your first name
             </label>
             <input
               id="ask-name"
               name="name"
               type="text"
               required
-              maxLength={80}
-              autoComplete="name"
+              maxLength={40}
+              autoComplete="given-name"
               disabled={loading}
-              placeholder="Your name"
+              placeholder="Your first name"
               className={fieldClass}
             />
 
