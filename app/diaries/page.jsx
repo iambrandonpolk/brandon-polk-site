@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -56,15 +57,13 @@ export default async function DiariesIndex() {
                   href={`/diaries/${entry.slug}`}
                   className="group grid grid-cols-1 items-center gap-6 border-b border-[var(--border)] py-8 sm:grid-cols-[10rem_1fr] sm:gap-10"
                 >
-                  <div className="overflow-hidden rounded-md bg-[var(--bg-soft)]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-[var(--bg-soft)]">
+                    <Image
                       src={entry.img}
                       alt={entry.alt}
-                      width={1069}
-                      height={1600}
-                      loading="lazy"
-                      className="aspect-[4/5] w-full object-cover transition-transform duration-700 ease-calm group-hover:scale-[1.03]"
+                      fill
+                      sizes="(max-width: 640px) 100vw, 160px"
+                      className="object-cover transition-transform duration-700 ease-calm group-hover:scale-[1.03]"
                     />
                   </div>
 
