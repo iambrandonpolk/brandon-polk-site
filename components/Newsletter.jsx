@@ -11,6 +11,7 @@ import Container from "./Container";
 // relying on Kit's ck.js, so the thank-you message always appears and
 // we control the wording.
 //
+// We send first_name too, so the welcome email can greet people by name.
 // Kit responds 200 with JSON: { status: "success" | "failed", errors }
 // To point this at a different Kit form, change KIT_ACTION below.
 // ------------------------------------------------------------------
@@ -47,7 +48,9 @@ function JournalForm() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const email = new FormData(event.currentTarget).get("email_address");
+    const data = new FormData(event.currentTarget);
+    const email = data.get("email_address");
+    const firstName = data.get("first_name");
 
     setStatus("loading");
     setMessage("");
@@ -59,14 +62,20 @@ function JournalForm() {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({ email_address: email }),
+        body: JSON.stringify({
+          email_address: email,
+          first_name: firstName,
+        }),
       });
 
-      const data = await res.json().catch(() => ({}));
+      const result = await res.json().catch(() => ({}));
 
-      if (!res.ok || data.status === "failed") {
+      if (!res.ok || result.status === "failed") {
         setMessage(
-          (data && data.errors && data.errors.messages && data.errors.messages[0]) ||
+          (result &&
+            result.errors &&
+            result.errors.messages &&
+            result.errors.messages[0]) ||
             "Something went wrong. Please try again in a moment."
         );
         setStatus("error");
@@ -102,28 +111,48 @@ function JournalForm() {
   }
 
   const loading = status === "loading";
+  const fieldClass =
+    "w-full rounded-full border border-[var(--border)] bg-[var(--bg)] px-5 py-3.5 text-sm text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-faint)] focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/25 disabled:opacity-60";
 
   return (
-    <div className="mx-auto mt-11 max-w-md">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
-        <label htmlFor="ck-email" className="sr-only">
-          Email address
-        </label>
-        <input
-          id="ck-email"
-          name="email_address"
-          type="email"
-          required
-          disabled={loading}
-          placeholder="your@email.com"
-          className="w-full rounded-full border border-[var(--border)] bg-[var(--bg)] px-5 py-3.5 text-sm text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-faint)] focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/25 disabled:opacity-60"
-        />
+    <div className="mx-auto mt-11 max-w-xl">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <label htmlFor="ck-first-name" className="sr-only">
+            First name
+          </label>
+          <input
+            id="ck-first-name"
+            name="first_name"
+            type="text"
+            required
+            autoComplete="given-name"
+            disabled={loading}
+            placeholder="First name"
+            className={fieldClass}
+          />
+
+          <label htmlFor="ck-email" className="sr-only">
+            Email address
+          </label>
+          <input
+            id="ck-email"
+            name="email_address"
+            type="email"
+            required
+            autoComplete="email"
+            disabled={loading}
+            placeholder="your@email.com"
+            className={fieldClass}
+          />
+        </div>
+
         <button
           type="submit"
           disabled={loading}
-          className="whitespace-nowrap rounded-full bg-[var(--brand)] px-7 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-calm hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] disabled:pointer-events-none disabled:opacity-70"
+          className="mx-auto w-full rounded-full bg-[var(--brand)] px-7 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-calm hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] disabled:pointer-events-none disabled:opacity-70 sm:w-auto sm:px-12"
         >
-          {loading ? "Joining..." : "Join"}
+          {loading ? "Joining..." : "Join the Journal"}
         </button>
       </form>
 
