@@ -46,6 +46,17 @@ export default async function DiariesIndex() {
               Ordinary things, looked at for longer than they deserve. Nothing
               here is resolved. That's the point.
             </p>
+
+            {/* The gear belongs here, with the pictures it made. */}
+            <a
+              href="/gear"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-[var(--brand)] transition-colors duration-300 hover:text-[var(--brand-strong)]"
+            >
+              The camera I shoot these on
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
           </div>
         </Container>
 
