@@ -65,37 +65,6 @@ export default async function Diaries() {
         </a>
       )}
 
-      {/* The gear sits with the diaries because it is the tool that made them,
-          not a product list. It reads as "here is what I shoot with." */}
-      <div className="mt-14 border-t border-[var(--border)]">
-        <a
-          href="/gear"
-          className="group flex items-baseline justify-between gap-6 border-b border-[var(--border)] py-7"
-        >
-          <div>
-            <span className="font-serif text-2xl font-light tracking-tight transition-colors duration-300 group-hover:text-[var(--brand)]">
-              My gear
-            </span>
-            <p className="mt-1 text-[var(--text-muted)]">
-              The camera, lenses, and small things I actually carry.
-            </p>
-          </div>
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="shrink-0 translate-y-1 text-[var(--text-faint)] transition-all duration-300 group-hover:translate-x-1 group-hover:text-[var(--brand)]"
-          >
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-
     </Section>
   );
 }
