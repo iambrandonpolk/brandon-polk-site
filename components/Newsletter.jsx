@@ -30,10 +30,9 @@ export default function Newsletter() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
-            This is where new work lands first: a diary entry when I finish
-            one, a podcast episode when it drops, and whatever I'm working
-            through in between. No fixed schedule, and nothing sent just to fill
-            one. If that sounds like your kind of thing, come along.
+            This is where I tell you what I'm working on: a new diary entry,
+            a podcast episode, and whatever I'm turning over in between. If any
+            of that sounds like your kind of thing, come along.
           </p>
 
           <JournalForm />
