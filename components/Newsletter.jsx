@@ -1,31 +1,24 @@
-import Script from "next/script";
+"use client";
+
+import { useState } from "react";
 import Container from "./Container";
 
 // ------------------------------------------------------------------
 // The heart of the site: a personal invitation, wired to Kit.
 //
-// CONNECTED TO KIT: this form posts to Brandon's "The Journal" form
-//    (Kit form ID 9661601, uid ae9c6a23fa). Subscribers land on that list.
-//    Kit's ck.js script below enhances it with inline success + spinner,
-//    so the visitor never leaves the page.
+// Subscribers post directly to Brandon's "The Journal" form
+// (Kit form ID 9661601). We handle the request ourselves rather than
+// relying on Kit's ck.js, so the thank-you message always appears and
+// we control the wording.
 //
-// To point this at a different Kit form later, change the form action
-// URL, data-sv-form, and data-uid to the new form's values (found in
-// Kit, your form, Embed, HTML).
+// Kit responds 200 with JSON: { status: "success" | "failed", errors }
+// To point this at a different Kit form, change KIT_ACTION below.
 // ------------------------------------------------------------------
 const KIT_ACTION = "https://app.kit.com/forms/9661601/subscriptions";
-const KIT_FORM_ID = "9661601";
-const KIT_UID = "ae9c6a23fa";
 
 export default function Newsletter() {
   return (
     <section id="newsletter" className="scroll-mt-28 py-28 sm:py-36 lg:py-44">
-      {/* Kit's enhancement script enables inline success without a redirect */}
-      <Script
-        src="https://f.convertkit.com/ckjs/ck.5.js"
-        strategy="afterInteractive"
-      />
-
       <Container>
         <div className="mx-auto max-w-3xl rounded-[2rem] border border-[var(--border-soft)] bg-[var(--bg-soft)] px-6 py-16 text-center sm:px-14 sm:py-20">
           <span className="eyebrow justify-center">The Journal</span>
@@ -41,78 +34,109 @@ export default function Newsletter() {
             your kind of thing, I'd love for you to read along.
           </p>
 
-          <div className="mx-auto mt-11 max-w-md">
-            <KitForm />
-          </div>
-
-          <p className="mt-6 text-sm text-[var(--text-faint)]">
-            For people who like to think out loud. No noise, no selling. Leave
-            whenever you like.
-          </p>
+          <JournalForm />
         </div>
       </Container>
     </section>
   );
 }
 
-// The site's own styled form, wired to Kit. ck.js finds it via the
-// data-sv-form / data-uid attributes and handles submission inline.
-function KitForm() {
-  return (
-    <form
-      action={KIT_ACTION}
-      method="post"
-      data-sv-form={KIT_FORM_ID}
-      data-uid={KIT_UID}
-      data-format="inline"
-      data-version="5"
-      className="seva-form formkit-form"
-    >
-      {/* Kit renders validation + success messages into these elements.
-          The success div is hidden until ck.js reveals it after a signup. */}
-      <ul
-        className="formkit-alert formkit-alert-error mb-3 list-none text-sm text-[var(--accent)]"
-        data-element="errors"
-        data-group="alert"
-      />
+function JournalForm() {
+  const [status, setStatus] = useState("idle");
+  const [message, setMessage] = useState("");
 
-      <div
-        data-element="fields"
-        data-stacked="false"
-        className="seva-fields formkit-fields flex flex-col gap-3 sm:flex-row"
-      >
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const email = new FormData(event.currentTarget).get("email_address");
+
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const res = await fetch(KIT_ACTION, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({ email_address: email }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || data.status === "failed") {
+        setMessage(
+          (data && data.errors && data.errors.messages && data.errors.messages[0]) ||
+            "Something went wrong. Please try again in a moment."
+        );
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+    } catch (err) {
+      setMessage(
+        "We couldn't reach the server. Please check your connection and try again."
+      );
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="animate-fade-up mx-auto mt-11 max-w-reading" role="status">
+        <p className="font-serif text-2xl font-light tracking-tight text-[var(--brand)] sm:text-3xl">
+          Thank you for joining the Journal.
+        </p>
+        <p className="mt-5 leading-relaxed text-[var(--text-muted)]">
+          I just sent you a confirmation email. Click the link inside to finish
+          signing up, and you'll be all set.
+        </p>
+        <p className="mt-4 text-sm leading-relaxed text-[var(--text-faint)]">
+          Don't see it? Check your spam or promotions folder, just in case it
+          landed there. Marking it "not spam" makes sure you never miss a
+          letter.
+        </p>
+      </div>
+    );
+  }
+
+  const loading = status === "loading";
+
+  return (
+    <div className="mx-auto mt-11 max-w-md">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
         <label htmlFor="ck-email" className="sr-only">
           Email address
         </label>
         <input
           id="ck-email"
-          className="formkit-input w-full rounded-full border border-[var(--border)] bg-[var(--bg)] px-5 py-3.5 text-sm text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-faint)] focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/25"
           name="email_address"
           type="email"
           required
+          disabled={loading}
           placeholder="your@email.com"
+          className="w-full rounded-full border border-[var(--border)] bg-[var(--bg)] px-5 py-3.5 text-sm text-[var(--text)] outline-none transition-all duration-300 placeholder:text-[var(--text-faint)] focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/25 disabled:opacity-60"
         />
         <button
-          data-element="submit"
-          className="formkit-submit whitespace-nowrap rounded-full bg-[var(--brand)] px-7 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-calm hover:-translate-y-0.5 hover:bg-[var(--brand-strong)]"
+          type="submit"
+          disabled={loading}
+          className="whitespace-nowrap rounded-full bg-[var(--brand)] px-7 py-3.5 text-sm font-medium text-white transition-all duration-500 ease-calm hover:-translate-y-0.5 hover:bg-[var(--brand-strong)] disabled:pointer-events-none disabled:opacity-70"
         >
-          <span>Join</span>
-          <span className="formkit-spinner">
-            <div />
-            <div />
-            <div />
-          </span>
+          {loading ? "Joining..." : "Join"}
         </button>
-      </div>
+      </form>
 
-      <div
-        className="formkit-alert formkit-alert-success mt-4 text-sm text-[var(--brand-strong)] hidden"
-        data-element="success"
-      >
-        <div className="formkit-success-content">
-          You're in. Check your inbox to confirm. Talk soon.
-        </div>
-      </div>
-    </form>
+      {status === "error" && (
+        <p className="mt-4 text-sm text-[var(--accent)]" role="alert">
+          {message}
+        </p>
+      )}
+
+      <p className="mt-6 text-sm text-[var(--text-faint)]">
+        For people who like to think out loud. No noise, no selling. Leave
+        whenever you like.
+      </p>
+    </div>
   );
 }
