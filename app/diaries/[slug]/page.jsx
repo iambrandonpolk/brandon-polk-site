@@ -1,16 +1,22 @@
 import { notFound } from "next/navigation";
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
-import { diaries } from "@/lib/content";
+import { getDiaries, getDiary, DIARY_REVALIDATE } from "@/lib/diaries";
 
-// One entry per page. Static at build time, so these are fast and indexable.
-export function generateStaticParams() {
+// Entries come from Notion. Pre-rendered at build, re-checked every few
+// minutes, and any slug published later is rendered on first request.
+export const revalidate = DIARY_REVALIDATE;
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const diaries = await getDiaries();
   return diaries.map((entry) => ({ slug: entry.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const entry = diaries.find((d) => d.slug === params.slug);
-  if (!entry) return {};
+export async function generateMetadata({ params }) {
+  const found = await getDiary(params.slug);
+  if (!found) return {};
+  const entry = found.entry;
 
   return {
     title: entry.question,
@@ -26,13 +32,11 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function DiaryEntry({ params }) {
-  const entry = diaries.find((d) => d.slug === params.slug);
-  if (!entry) notFound();
+export default async function DiaryEntry({ params }) {
+  const found = await getDiary(params.slug);
+  if (!found) notFound();
 
-  const index = diaries.findIndex((d) => d.slug === entry.slug);
-  const newer = diaries[index - 1];
-  const older = diaries[index + 1];
+  const { entry, newer, older } = found;
 
   return (
     <>
