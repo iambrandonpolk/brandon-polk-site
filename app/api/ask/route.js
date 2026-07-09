@@ -58,7 +58,17 @@ export async function POST(request) {
   const database = process.env.NOTION_QUESTIONS_DB;
 
   if (!token || !database) {
-    console.error("Ask form: NOTION_TOKEN or NOTION_QUESTIONS_DB is missing.");
+    // Log which one is absent and how long it is. Never the value itself.
+    console.error(
+      "Ask form env check:",
+      JSON.stringify({
+        tokenPresent: Boolean(token),
+        tokenLength: token ? token.length : 0,
+        tokenPrefixOk: token ? token.slice(0, 4) === "ntn_" : false,
+        databasePresent: Boolean(database),
+        databaseLength: database ? database.length : 0,
+      })
+    );
     return Response.json(
       { error: "This isn't set up quite yet. Please try again later." },
       { status: 500 }
