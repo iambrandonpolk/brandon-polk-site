@@ -42,9 +42,9 @@ export default function PerspectivePage() {
             <div className="mt-10 space-y-7 text-lg leading-relaxed text-[var(--text-muted)]">
               <p>
                 Something you read. Something you learned. Something you noticed
-                and haven't been able to put down since. It doesn't have to be
-                an answer, and it doesn't have to be about me. If it shifted
-                the way you think, I want to sit with it too.
+                and haven't been able to put down since. It doesn't have to be an
+                answer. If it shifted the way you think, I want to sit with it
+                too.
               </p>
               <p>
                 It doesn't have to be profound. The small, strange, specific
