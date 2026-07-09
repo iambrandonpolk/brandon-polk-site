@@ -104,8 +104,11 @@ export default function RootLayout({ children }) {
     >
       <head>
         {/*
-          Prevent a flash of the wrong theme: set the class before paint,
-          based on saved preference or the OS setting.
+          Runs before paint. Two jobs:
+          1. Prevent a flash of the wrong theme.
+          2. Turn off the browser's scroll restoration so a reload starts at
+             the top instead of dumping you back down the page. Anchor links
+             like /#books still work.
         */}
         <script
           dangerouslySetInnerHTML={{
@@ -116,6 +119,16 @@ export default function RootLayout({ children }) {
                   var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                   if (stored === 'dark' || (!stored && prefersDark)) {
                     document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+                try {
+                  if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
+                  }
+                  if (!location.hash) {
+                    window.addEventListener('load', function () {
+                      window.scrollTo(0, 0);
+                    });
                   }
                 } catch (e) {}
               })();
