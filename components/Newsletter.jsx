@@ -26,12 +26,12 @@ export default function Newsletter() {
           <span className="eyebrow justify-center">The Journal</span>
 
           <h2 className="mt-6 font-serif text-4xl font-light leading-[1.06] tracking-tighter sm:text-5xl">
-            Think out loud with me.
+            Join the process.
           </h2>
 
           <p className="mx-auto mt-6 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
             I send the entries, the episodes, and the questions I haven't
-            answered yet. Come sit with them.
+            answered yet. Read them, argue with them, send me something better.
           </p>
 
           <JournalForm />
