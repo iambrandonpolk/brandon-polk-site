@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Intro from "@/components/Intro";
 import Newsletter from "@/components/Newsletter";
 import About from "@/components/About";
 import Diaries from "@/components/Diaries";
@@ -9,9 +10,9 @@ import Reveal from "@/components/Reveal";
 //
 // Three deliberate absences:
 //
-// 1. No hero. A headline announcing what the site is about, above the site
-//    itself, is a promise made before any evidence. The diary entries make
-//    the same point and prove it in the same breath.
+// 1. No hero image, no slogan, no button. One sentence at the top says what
+//    this is, and then the work starts. A headline that announces a site is
+//    a promise made before any evidence.
 //
 // 2. No quote rotator. It reserved the most contemplative design element on
 //    a site about Brandon's own thinking for other people's ideas.
@@ -26,6 +27,7 @@ export default function Home() {
     <>
       <Navbar />
       <main>
+        <Intro />
         <Diaries />
         <Reveal>
           <About />
