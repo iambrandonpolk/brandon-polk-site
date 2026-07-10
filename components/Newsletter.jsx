@@ -31,7 +31,15 @@ export default function Newsletter() {
 
           <p className="mx-auto mt-6 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
             I send the entries, the episodes, and the questions I haven't
-            answered yet. Read them, argue with them, send me something better.
+            answered yet. Read them, agree with them, argue with them, or send me
+            something better over on the{" "}
+            <a
+              href="/perspective"
+              className="link-underline font-medium text-[var(--brand)]"
+            >
+              Perspective
+            </a>{" "}
+            page.
           </p>
 
           <JournalForm />
