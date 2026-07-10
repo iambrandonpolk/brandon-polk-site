@@ -62,7 +62,7 @@ export default function About() {
       >
         <div>
           <h2 className="mt-6 max-w-reading font-serif text-4xl font-light leading-[1.12] tracking-tighter sm:text-5xl">
-            I'm not writing from the finish line.
+            Still somewhere in the middle.
           </h2>
 
           <div className="mt-10 max-w-reading space-y-7 text-lg leading-relaxed text-[var(--text-muted)]">
