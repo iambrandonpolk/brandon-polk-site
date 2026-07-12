@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
-import { bookshelf } from "@/lib/content";
+import { bookshelf, readingNow } from "@/lib/content";
 
 export const metadata = {
   title: "Bookshelf",
@@ -46,6 +46,40 @@ export default function BookshelfPage() {
               creativity, money, people, faith, and building a life worth
               documenting. Tap any cover to grab it on Amazon.
             </p>
+          </div>
+        </Container>
+
+        {/* What Brandon is on right now: three states, not a category. */}
+        <Container className="pb-16">
+          <p className="eyebrow mb-8">On the nightstand</p>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+            {readingNow.map((book) => (
+              <a
+                key={book.title}
+                href={book.href}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="group flex gap-5"
+              >
+                <div className="relative h-32 w-[5.5rem] shrink-0 overflow-hidden rounded-md bg-[var(--bg-soft)] shadow-sm ring-1 ring-[var(--border-soft)]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={book.img}
+                    alt={`${book.title} cover`}
+                    className="h-full w-full object-cover transition-transform duration-500 ease-calm group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="min-w-0">
+                  <span className="text-xs font-medium uppercase tracking-wide text-[var(--brand)]">
+                    {book.label}
+                  </span>
+                  <p className="mt-1.5 font-serif text-lg font-light leading-snug tracking-tight transition-colors duration-300 group-hover:text-[var(--brand)]">
+                    {book.title}
+                  </p>
+                  <p className="mt-1 text-sm text-[var(--text-muted)]">{book.author}</p>
+                </div>
+              </a>
+            ))}
           </div>
         </Container>
 
