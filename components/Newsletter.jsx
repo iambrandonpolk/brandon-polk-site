@@ -105,16 +105,20 @@ function JournalForm() {
     return (
       <div className="animate-fade-up mx-auto mt-11 max-w-reading" role="status">
         <p className="font-serif text-2xl font-light tracking-tight text-[var(--brand)] sm:text-3xl">
-          Thank you for joining the Journal.
+          Thanks for joining The Journal.
         </p>
         <p className="mt-5 leading-relaxed text-[var(--text-muted)]">
-          I just sent you a confirmation email. Click the link inside to finish
-          signing up, and you'll be all set.
+          One quick step and you're all set. I just sent a confirmation email to
+          your inbox. Open it, click the confirm link, and you're officially in.
         </p>
-        <p className="mt-4 text-sm leading-relaxed text-[var(--text-faint)]">
-          Don't see it? Check your spam or promotions folder, just in case it
-          landed there. Marking it "not spam" makes sure you never miss a
-          letter.
+        <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
+          If you don't see it in the next few minutes, check your spam folder and
+          your promotions tab, since that's usually where it lands first. Move it
+          over to your main inbox so you never miss an issue.
+        </p>
+        <p className="mt-4 leading-relaxed text-[var(--text)]">
+          One important thing: you're not fully subscribed until you click that
+          confirm link. So do that first, and I'll see you in your inbox.
         </p>
       </div>
     );
