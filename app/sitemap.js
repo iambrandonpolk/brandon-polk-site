@@ -1,4 +1,5 @@
 import { getDiaries } from "@/lib/diaries";
+import { getPosts } from "@/lib/writing";
 
 // ------------------------------------------------------------------
 // Generated, not hand-written. The old version listed two sections that no
@@ -12,10 +13,18 @@ const SITE = "https://iambrandonpolk.com";
 
 export default async function sitemap() {
   const diaries = await getDiaries();
+  const posts = await getPosts();
 
   const entries = diaries.map((entry) => ({
     url: `${SITE}/diaries/${entry.slug}`,
     lastModified: entry.date ? new Date(entry.date) : new Date(),
+    changeFrequency: "yearly",
+    priority: 0.8,
+  }));
+
+  const writing = posts.map((post) => ({
+    url: `${SITE}/writing/${post.slug}`,
+    lastModified: post.date ? new Date(post.date) : new Date(),
     changeFrequency: "yearly",
     priority: 0.8,
   }));
@@ -28,5 +37,7 @@ export default async function sitemap() {
     { url: `${SITE}/gear`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${SITE}/podcast`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${SITE}/perspective`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
+    { url: `${SITE}/writing`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    ...writing,
   ];
 }
