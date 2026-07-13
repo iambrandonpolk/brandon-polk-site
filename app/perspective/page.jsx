@@ -56,6 +56,40 @@ export default function PerspectivePage() {
             </div>
           </div>
 
+          {/* The Other Angle — reflective AI companion */}
+          <section className="mt-20">
+            <span className="eyebrow">A space to think</span>
+            <h2 className="mt-6 font-serif text-3xl font-light leading-[1.1] tracking-tighter sm:text-4xl">
+              The Other Angle
+            </h2>
+            <p className="mt-6 max-w-reading text-lg leading-relaxed text-[var(--text-muted)]">
+              Stuck on something? Share what's on your mind. Instead of advice, you'll get one
+              better question to sit with, plus a few gentle steps to help you find the shift
+              yourself. Everything stays right here on the page.
+            </p>
+
+            <div className="mt-10 overflow-hidden rounded-2xl border border-[var(--border-soft)] shadow-sm">
+              <iframe
+                src="https://app.captivationgenius.com/ai-apps/extern/shared/DAmlXfGlbd0ZYiwv2bXL7YXlXX0DBbXTTVFyMxR9WSWpYwKPHYvfSBlTmZi7y1lw"
+                title="The Other Angle"
+                loading="lazy"
+                className="block w-full"
+                style={{ height: "640px", border: "0" }}
+              />
+            </div>
+
+            <p className="mt-6 max-w-reading border-l-2 border-[var(--brand)] pl-4 text-sm leading-relaxed text-[var(--text-muted)]">
+              The Other Angle is a reflection tool, not professional advice. It does not give
+              medical, psychological, legal, or financial advice, and it is not a therapist or
+              counselor or a substitute for one. If something feels serious or urgent, or if you
+              are in crisis or thinking about harming yourself, please reach out to someone you
+              trust or a qualified professional right away. In the U.S. you can call or text 988
+              (Suicide &amp; Crisis Lifeline) any time. By using it you agree that you do so at
+              your own discretion, and that Brandon Polk is not responsible or liable for any
+              decisions you make based on it.
+            </p>
+          </section>
+
           <Ask />
         </Container>
       </main>
