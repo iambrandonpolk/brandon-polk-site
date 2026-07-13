@@ -47,7 +47,7 @@ export default function ABetterQuestionPage() {
 
           <div className="mt-12 overflow-hidden rounded-2xl border border-[var(--border-soft)] shadow-sm">
             <iframe
-              src="https://app.captivationgenius.com/ai-apps/extern/shared/DAmlXfGlbd0ZYiwv2bXL7YXlXX0DBbXTTVFyMxR9WSWpYwKPHYvfSBlTmZi7y1lw"
+              src="https://app.captivationgenius.com/ai-apps/extern/shared/eIs6vY9HqP3zmixH4E811VlHf3wDM2fUK5zkuz1xv00wNo2L4IZnw4ThSoCPILMm"
               title="A Better Question"
               loading="lazy"
               className="block w-full"
