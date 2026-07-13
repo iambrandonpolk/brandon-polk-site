@@ -116,15 +116,17 @@ export default async function WritingArticle({ params }) {
                     <span className="h-2 w-2 rounded-full" style={{ background: "#1DB954" }} />
                     Spotify
                   </a>
-                  <a
-                    href={post.youtubeUrl || YOUTUBE_CHANNEL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--brand)]"
-                  >
-                    <span className="h-2 w-2 rounded-full" style={{ background: "#FF0000" }} />
-                    YouTube
-                  </a>
+                  {post.youtubeUrl && (
+                    <a
+                      href={post.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-white px-4 py-2 text-sm font-medium text-[var(--text)] transition-colors hover:border-[var(--brand)]"
+                    >
+                      <span className="h-2 w-2 rounded-full" style={{ background: "#FF0000" }} />
+                      YouTube
+                    </a>
+                  )}
                 </div>
               </div>
             )}
