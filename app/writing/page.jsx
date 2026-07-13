@@ -8,7 +8,7 @@ export const revalidate = WRITING_REVALIDATE;
 export const metadata = {
   title: "Writing",
   description:
-    "Essays on asking better questions, faith, and building a life worth documenting. Some go out with the podcast.",
+    "Written versions of The Other Angle podcast episodes, so you can read the conversation instead of only hearing it.",
   alternates: { canonical: "/writing" },
 };
 
@@ -39,11 +39,12 @@ export default async function WritingIndex() {
           <div className="max-w-reading">
             <span className="eyebrow">Writing</span>
             <h1 className="mt-6 font-serif text-4xl font-light leading-[1.08] tracking-tighter sm:text-5xl">
-              Thinking, out loud and in full sentences.
+              The podcast, written down.
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-[var(--text-muted)]">
-              Longer pieces on what I'm working through. Some of them go out with
-              an episode of the podcast; some just stand on their own.
+              Every piece here is a written version of an episode of The Other
+              Angle: the same thinking, in full sentences, for when you'd rather
+              read than listen.
             </p>
           </div>
         </Container>
@@ -51,7 +52,7 @@ export default async function WritingIndex() {
         <Container className="pb-16">
           {posts.length === 0 ? (
             <p className="border-t border-[var(--border)] pt-10 text-[var(--text-muted)]">
-              The first essay is on its way. Check back soon.
+              The first one goes up with the next episode. Check back soon.
             </p>
           ) : (
             <div className="border-t border-[var(--border)]">
