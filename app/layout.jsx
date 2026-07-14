@@ -21,7 +21,7 @@ const newsreader = Newsreader({
 // SEO: siteUrl is the live domain.
 // ------------------------------------------------------------------
 const siteUrl = "https://iambrandonpolk.com";
-const title = "Brandon Polk | Learning in public. Building with curiosity.";
+const title = "Brandon Polk — Notes from someone still figuring it out";
 const description =
   "I'm Brandon. I write about the questions I'm sitting with: business, faith, health, and the small photographs of everyday life. I share what I learn as I go.";
 
