@@ -16,7 +16,7 @@ export default function Footer() {
               Brandon Polk
             </p>
             <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
-              Learning in public, one question at a time. If you'd like to
+              Questions I'm still working through, out loud. If you'd like to
               follow along,{" "}
               <a
                 href="#newsletter"
