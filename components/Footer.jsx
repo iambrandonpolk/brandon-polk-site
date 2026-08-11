@@ -1,6 +1,17 @@
 import Container from "./Container";
 import { social } from "@/lib/content";
 
+// A curated site map for the footer — mirrors the trimmed nav so every
+// destination is reachable from the bottom of any page.
+const explore = [
+  { label: "A Better Question", href: "/a-better-question" },
+  { label: "Writing", href: "/writing" },
+  { label: "Diaries", href: "/diaries" },
+  { label: "Perspective", href: "/perspective" },
+  { label: "Resources", href: "/resources" },
+  { label: "Trading", href: "/trading" },
+];
+
 // A calm close. One last invitation, quiet links, and room to breathe.
 // The "Elsewhere" list carries Instagram (where DMs land) and a discreet
 // Email link. No loud "contact me" call, on purpose.
@@ -28,22 +39,39 @@ export default function Footer() {
             </p>
           </div>
 
-          <nav className="flex flex-col gap-4">
-            <p className="eyebrow">Elsewhere</p>
-            <div className="grid grid-cols-2 gap-x-12 gap-y-3">
-              {social.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="link-underline w-fit text-sm text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text)]"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </nav>
+          <div className="flex gap-16 sm:gap-24">
+            <nav className="flex flex-col gap-4">
+              <p className="eyebrow">Explore</p>
+              <div className="flex flex-col gap-3">
+                {explore.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="link-underline w-fit text-sm text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text)]"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </nav>
+
+            <nav className="flex flex-col gap-4">
+              <p className="eyebrow">Elsewhere</p>
+              <div className="flex flex-col gap-3">
+                {social.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="link-underline w-fit text-sm text-[var(--text-muted)] transition-colors duration-300 hover:text-[var(--text)]"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </nav>
+          </div>
         </div>
 
         <div className="mt-16 flex flex-col gap-2 border-t border-[var(--border-soft)] pt-8 text-sm text-[var(--text-faint)] sm:flex-row sm:items-center sm:justify-between">
