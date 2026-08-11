@@ -1,7 +1,7 @@
 import Container from "./Container";
 import { social } from "@/lib/content";
 
-// A curated site map for the footer — mirrors the trimmed nav so every
+// A curated site map for the footer that mirrors the trimmed nav so every
 // destination is reachable from the bottom of any page.
 const explore = [
   { label: "A Better Question", href: "/a-better-question" },
@@ -10,6 +10,7 @@ const explore = [
   { label: "Perspective", href: "/perspective" },
   { label: "Resources", href: "/resources" },
   { label: "Trading", href: "/trading" },
+  { label: "Links", href: "/links" },
 ];
 
 // A calm close. One last invitation, quiet links, and room to breathe.
