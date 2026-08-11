@@ -10,7 +10,7 @@ export const metadata = {
   alternates: { canonical: "/resources" },
 };
 
-// A quiet hub. Three doors — books, podcast, gear — so the top nav stays
+// A quiet hub. Three doors (books, podcast, gear) so the top nav stays
 // clean and everything still lives one tap away.
 const resources = [
   {
@@ -23,7 +23,7 @@ const resources = [
     href: "/podcast",
     eyebrow: "Listening",
     title: "The Podcast",
-    desc: "The Other Angle — short, honest episodes on seeing your life from a different angle. New ones on Mondays.",
+    desc: "The Other Angle. Short, honest episodes on seeing your life from a different angle. New ones on Mondays.",
   },
   {
     href: "/gear",
@@ -65,7 +65,7 @@ export default function ResourcesPage() {
               The things worth passing on.
             </h1>
             <p className="mt-7 text-lg leading-relaxed text-[var(--text-muted)]">
-              A short shelf of what I lean on and point people to — what I'm
+              A short shelf of what I lean on and point people to: what I'm
               reading, what I'm recording, and what I shoot with. Pick a door.
             </p>
           </div>
