@@ -6,7 +6,7 @@ import { patreon } from "@/lib/content";
 export const metadata = {
   title: "Trading",
   description:
-    "In the markets I go by Pipcasso. Join me live in The Canvas — a private Discord — every time I trade. Watch the screen, hear the reasoning, ask in real time.",
+    "In the markets I go by Pipcasso. Join me live in The Canvas, a private Discord, every time I trade. Watch the screen, hear the reasoning, ask in real time.",
   alternates: { canonical: "/trading" },
 };
 
@@ -52,13 +52,13 @@ export default function TradingPage() {
         {/* Hero */}
         <Container className="pt-20 pb-14 sm:pt-28">
           <div className="max-w-reading">
-            <span className="eyebrow">Trading — with Pipcasso</span>
+            <span className="eyebrow">Trading with Pipcasso</span>
             <h1 className="mt-6 font-serif text-5xl font-light leading-[1.05] tracking-tighter sm:text-6xl">
-              The market is a canvas.
+              Trade with me, live.
             </h1>
             <p className="mt-7 text-lg leading-relaxed text-[var(--text-muted)]">
-              In the markets, I go by Pipcasso — pips and Picasso. A chart is a
-              blank canvas and every trade is a brushstroke, and the same
+              In the markets, I go by Pipcasso. A chart is a blank canvas and
+              every trade is a brushstroke, and the same
               eye that hunts for a different angle in everyday life is the one I
               point at price.
             </p>
@@ -66,7 +66,7 @@ export default function TradingPage() {
               Every time I sit down to trade, I go live in a private Discord
               called <span className="text-[var(--text)]">The Canvas</span>. You
               see the screen, hear why I'm taking a trade or sitting on my hands,
-              and ask questions while it's happening — not in a recap after the
+              and ask questions while it's happening, not in a recap after the
               fact.
             </p>
             <p className="mt-5 text-lg leading-relaxed text-[var(--text-muted)]">
@@ -121,8 +121,8 @@ export default function TradingPage() {
             <ul className="space-y-4 text-lg leading-relaxed text-[var(--text-muted)]">
               {[
                 "Live screen-shares every time I trade, with the reasoning out loud.",
-                "The Canvas — a private Discord to ask questions and think through setups together.",
-                "The honest version — the trades I skip and the ones that don't work, not just the wins.",
+                "The Canvas, a private Discord to ask questions and think through setups together.",
+                "The honest version: the trades I skip and the ones that don't work, not just the wins.",
               ].map((line) => (
                 <li key={line} className="flex gap-3">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-1 shrink-0">
@@ -167,7 +167,7 @@ export default function TradingPage() {
               not a licensed financial advisor, and nothing in The Canvas is a
               recommendation to buy, sell, or hold any security or asset. Trading
               involves real risk, including the loss of your capital. You are
-              responsible for your own decisions — trade only what you can afford
+              responsible for your own decisions. Trade only what you can afford
               to lose, and consider speaking with a licensed professional before
               you do.
             </p>
